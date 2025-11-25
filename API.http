@@ -1,0 +1,63 @@
+@API_HostAddress = http://localhost:5214
+
+### Get All Products
+GET {{API_HostAddress}}/api/products
+Accept: application/json
+
+### Create a Product
+POST {{API_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Test Product",
+  "description": "A sample product",
+  "price": 100.00,
+  "imageUrl": "http://example.com/image.png"
+}
+
+### Get Wilayas
+GET {{API_HostAddress}}/api/shipping/wilayas
+Accept: application/json
+
+### Create a Wilaya
+POST {{API_HostAddress}}/api/shipping/wilayas
+Content-Type: application/json
+
+{
+  "name": "Algiers"
+}
+
+### Create a Baladiya
+POST {{API_HostAddress}}/api/shipping/baladiyas
+Content-Type: application/json
+
+{
+  "name": "Bab Ezzouar",
+  "wilayaId": 1
+}
+
+### Create a Shipping Rate
+POST {{API_HostAddress}}/api/shipping/rates
+Content-Type: application/json
+
+{
+  "baladiyaId": 1,
+  "price": 500.00
+}
+
+### Create an Order
+POST {{API_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "Yanis",
+  "customerPhone": "0555555555",
+  "address": "Bab Ezzouar, Algiers",
+  "baladiyaId": 1,
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 2
+    }
+  ]
+}
