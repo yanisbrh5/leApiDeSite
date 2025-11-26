@@ -35,7 +35,9 @@ namespace API
                 options.AddPolicy("AllowFrontend",
                     policy =>
                     {
-                        policy.AllowAnyOrigin()
+                        policy.WithOrigins("https://elmanaradmincenter.netlify.app", 
+                                           "http://localhost:5500", 
+                                           "http://127.0.0.1:5500")
                               .AllowAnyHeader()
                               .AllowAnyMethod();
                     });
